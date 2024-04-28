@@ -1,0 +1,67 @@
+<body>
+    <main class="main-home">
+        <div class="equipo-main">
+            <?php if($user != null) : ?>
+                <?php if($equipo != null) : ?>
+                    <div class="cancha">
+                        <?php foreach($equipo as $jugador) : ?>
+                                <div class="jugador">
+                                    <form action="" method="GET"> 
+                                        <input type="hidden" name="jugador_id" value="<?= $jugador->jugador_id ?>">
+                                        <button type="submit" class="btn-jugador">
+                                            <?php if($jugador->es_capitan == 1) : ?>
+                                                <?php $capitan = $jugador?>
+                                                <img src="capitan.png" alt="cinta">
+                                            <?php endif ?>
+                                        </button>
+                                    </form>
+                                    <div class="nombre-jugador">
+                                        <span class="<?=$jugador->estado?>">&nbsp</span><p><?=$jugador->nombre_jugador?> <?=$jugador->apellido_jugador?></p>
+                                    </div>
+                                </div>
+                        <?php endforeach ?>
+                    </div>
+                    <div class="info-team">
+                        <div class="datos-team">
+                            <h1><?=$equipo[0]->nombre?></h1>
+                            <h2>Capitan: <?=$capitan->nombre_jugador . " " . $capitan->apellido_jugador?></h2>
+                            <h2>DT: <?=$_SESSION['USERNAME']?></h2>
+                            <h2>Puntos totales: <?=$equipo[0]->puntos_total?></h2>
+                            <h2>Cambios disponibles: <?= ($equipo[0]->hizoCambio == 1) ? 0 : 1?> </h2>
+                        </div>
+                        <h1>¡Estamos en VEDA!</h1>
+                        <!-- <a href="transferencia"><button>Realizar una transferencia</button></a> -->
+                    </div>
+                <?php else : ?>
+                    <div class="cancha">
+                        <a href="newTeam"><button type="submit" class="btn-newTeam">Crear equipo</button></a>
+                    </div>
+                <?php endif ?>
+            <?php else : ?>
+                <div class="cancha">
+                    <a href="login" class="login-btn">Iniciar sesión</a>
+                </div>
+            <?php endif ?>
+
+        </div>
+        <div class="ranking-container">
+            <h2>Ranking:</h2>
+            <a href="home?t=1">Por fecha</a>
+            <a href="home?t=2">Por tabla general</a>
+            <ol class="ranking-list">
+                <?php foreach ($puntos as $punto) : ?> 
+                <li class="ranking-item">
+                    <div class= "player-info">
+                        <span class="user-name"><?=$punto->nombre . " " . $punto->apellido?> </span>
+                        <span class="user-name">Puntos = <?=$punto->puntos?> </span>
+                    </div>
+                    <div class="team-info">
+                        <span class="user-team"><?= $punto->nombre_equipo ?> </span>
+                        <span class="user-team">Puntos totales = <?= $punto->puntos_total ?> </span>   
+                    </div>
+                </li>
+                <?php endforeach ?>
+            </ol>
+        </div>
+    </main>
+</body>

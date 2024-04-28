@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDT Guillotense</title>
+    <link rel="stylesheet" href="./style/style2.css">
+    <link rel="shortcut icon" href="escudo.jpg" type="image/x-icon">
+</head>
+
+<body>
+
+<header>
+  <a class="a-title" href="home">
+    <div class="left-section">
+        <img src="escudo.jpg" alt="Logo de Gran DT Guillotense" class="logo">
+        <h1 class="title">Gran DT Guillotense</h1>
+    </div>
+  </a>
+    <nav>
+        <ul>
+            <li><a class="a" href="proximamente">Info</a></li>
+            <li><a class="a" href="proximamente">Calendario</a></li>
+            <li><a class="a" href="proximamente">Gran DT</a></li>
+        </ul>
+    </nav>
+    <div class="auth-links">
+        <?php if(authHelper::isAuthenticated()): ?>
+            <a href="logout" class="logout-btn">Cerrar sesión</a>
+        <?php else: ?>
+            <a href="register" class="register-btn">Registrarse</a>
+        <?php endif; ?>
+    </div>
+</header>
+
+</body>
+</html>
