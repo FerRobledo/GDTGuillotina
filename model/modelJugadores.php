@@ -45,7 +45,7 @@ class modelJugadores{
     }
 
     public function set0Pts(){
-        $sql = "UPDATE JUGADOR
+        $sql = "UPDATE jugador
                 SET puntos = 0";
         $query = $this->db->prepare($sql);
         $query->execute();

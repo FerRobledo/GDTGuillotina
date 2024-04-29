@@ -41,4 +41,10 @@ class userModel{
         $query->execute([$id]);
     }
 
+    public function darCambios(){
+        $sql = "UPDATE usuario SET hizoCambio = 0";
+        $query = $this->db->prepare($sl);
+        $query->execute([$id]);
+    }
+
 }

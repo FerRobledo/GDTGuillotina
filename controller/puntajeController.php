@@ -30,8 +30,9 @@
             $penalat = $_POST['penal_atajado'];
             $golpen = $_POST['gol_penal'];
             $golcon = $_POST['gol_contra'];
+            $correc = $_POST['correccion'];
             
-            $idPuntos = $this->modelPuntaje->cargarPuntos($idj, $tor, $fec, $val, $fig, $vallainv, $golrecib, $goloro, $taram, $tarro, $gol, $penaler, $penalat, $golpen, $golcon);
+            $idPuntos = $this->modelPuntaje->cargarPuntos($idj, $tor, $fec, $val, $fig, $vallainv, $golrecib, $goloro, $taram, $tarro, $gol, $penaler, $penalat, $golpen, $golcon, $correc);
             $puntos = $this->modelPuntaje->getById($idPuntos);
             $this->actualizarPts($idj, $puntos);
             
@@ -56,6 +57,7 @@
                     $sumaPuntos += $puntos->penal_atajado*4;
                     $sumaPuntos += $puntos->gol_penal*3;
                     $sumaPuntos += $puntos->gol_contra*-2;
+                    $sumaPintos += $puntos->correccion;
                 break;
                 case 'def' :
                     $sumaPuntos += $puntos->valoracion;
@@ -70,6 +72,7 @@
                     $sumaPuntos += $puntos->penal_atajado*4;
                     $sumaPuntos += $puntos->gol_penal*3;
                     $sumaPuntos += $puntos->gol_contra*-2;
+                    $sumaPintos += $puntos->correccion;
                 break;
                 case 'med' :
                     $sumaPuntos += $puntos->valoracion;
@@ -84,6 +87,7 @@
                     $sumaPuntos += $puntos->penal_atajado*4;
                     $sumaPuntos += $puntos->gol_penal*3;
                     $sumaPuntos += $puntos->gol_contra*-2;
+                    $sumaPintos += $puntos->correccion;
                 break;
                 case 'del' :
                     $sumaPuntos += $puntos->valoracion;
@@ -98,6 +102,7 @@
                     $sumaPuntos += $puntos->penal_atajado*4;
                     $sumaPuntos += $puntos->gol_penal*3;
                     $sumaPuntos += $puntos->gol_contra*-2;
+                    $sumaPintos += $puntos->correccion;
                 break;
             }
             $this->modelJugadores->actualizarPts($idj, $sumaPuntos);

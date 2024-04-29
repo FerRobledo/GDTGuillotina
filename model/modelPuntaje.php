@@ -34,10 +34,10 @@
             return $query->fetch(PDO::FETCH_OBJ);
         }
 
-        public function cargarPuntos($idj, $tor, $fec , $val, $fig, $vallainv, $golrecib, $goloro, $taram, $tarro, $gol, $penaler, $penalat, $golpen, $golcon){
-            $sql = "INSERT INTO puntaje (`torneo`, `fecha`, `id_jugador`, `valoracion`, `figura`, `valla_invicta`, `gol_recibido`, `gol_oro`, `tarjeta_amarilla`, `tarjeta_roja`, `gol`, `penal_errado`, `penal_atajado`, `gol_penal`, `gol_contra`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        public function cargarPuntos($idj, $tor, $fec , $val, $fig, $vallainv, $golrecib, $goloro, $taram, $tarro, $gol, $penaler, $penalat, $golpen, $golcon, $correc){
+            $sql = "INSERT INTO puntaje (`torneo`, `fecha`, `id_jugador`, `valoracion`, `figura`, `valla_invicta`, `gol_recibido`, `gol_oro`, `tarjeta_amarilla`, `tarjeta_roja`, `gol`, `penal_errado`, `penal_atajado`, `gol_penal`, `gol_contra`, correccion) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             $query = $this->db->prepare($sql);
-            $query->execute([$tor, $fec, $idj, $val, $fig, $vallainv, $golrecib, $goloro, $taram, $tarro, $gol, $penaler, $penalat, $golpen, $golcon]);
+            $query->execute([$tor, $fec, $idj, $val, $fig, $vallainv, $golrecib, $goloro, $taram, $tarro, $gol, $penaler, $penalat, $golpen, $golcon, $correc]);
             return $this->db->lastInsertId();
         }
 

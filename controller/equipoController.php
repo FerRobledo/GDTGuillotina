@@ -1,12 +1,12 @@
 <?php
 
 require_once 'config.php';
-require_once './helper/authHelper.php';
-require_once './model/userModel.php';
-require_once './model/modelJugadores.php';
-require_once './model/modelEquipo.php';
-require_once './view/view.php';
-require_once './model/modelPuntaje.php';
+require_once 'authHelper.php';
+require_once 'userModel.php';
+require_once 'modelJugadores.php';
+require_once 'modelEquipo.php';
+require_once 'view.php';
+require_once 'modelPuntaje.php';
 
 class equipoController{
     private $model;
@@ -144,6 +144,7 @@ class equipoController{
             $this->modelEquipo->actualizarPuntos($equipo->nombre, $sumaPuntos);
         }
         $modelJugadores->set0Pts();
+        $this->model->darCambios();
         header('Location:' . BASE_URL . '');
     }
 
@@ -216,17 +217,6 @@ class equipoController{
 
         return true;
     }
-    
-    static function terminarVeda(){
-        config::setVeda(true);
-        if(config::$veda){
-            echo("HAY VEDA.");
-        } else{
-            echo("NO HAY VEDA.");
-        }
-        header('Location: ' . BASE_URL . '');
-        return;
-    }
 
     function transferir(){
         if(authHelper::isAuthenticated()){
@@ -271,26 +261,6 @@ class equipoController{
             }
         }
         return false; // Si no hay valores repetidos, retorna false
-    }
-
-    static function comenzarVeda(){
-        config::setVeda(true);
-        if(config::$veda){
-            echo("HAY VEDA.");
-        } else{
-            echo("NO HAY VEDA.");
-        }
-        return;
-        header('Location: ' . BASE_URL . '/admin');
-    }
-
-    function verVeda(){
-        if(config::$veda){
-            echo("HAY VEDA.");
-        } else{
-            echo("NO HAY VEDA.");
-        }
-        return; 
     }
 
 }

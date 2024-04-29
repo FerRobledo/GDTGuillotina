@@ -1,8 +1,8 @@
 <?php
 
-require_once './model/userModel.php';
-require_once './view/view.php';
-require_once './model/modelJugadores.php';
+require_once 'userModel.php';
+require_once 'view.php';
+require_once 'modelJugadores.php';
 
 class controller{
 
