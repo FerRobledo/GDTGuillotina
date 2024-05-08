@@ -1,12 +1,12 @@
 <?php
 
-require_once 'config.php';
-require_once 'authHelper.php';
-require_once 'userModel.php';
-require_once 'modelJugadores.php';
-require_once 'modelEquipo.php';
-require_once 'view.php';
-require_once 'modelPuntaje.php';
+require_once './config.php';
+require_once './helper/authHelper.php';
+require_once './model/userModel.php';
+require_once './model/modelJugadores.php';
+require_once './model/modelEquipo.php';
+require_once './view/view.php';
+require_once './model/modelPuntaje.php';
 
 class equipoController{
     private $model;
@@ -143,7 +143,6 @@ class equipoController{
             }
             $this->modelEquipo->actualizarPuntos($equipo->nombre, $sumaPuntos);
         }
-        $modelJugadores->set0Pts();
         $this->model->darCambios();
         header('Location:' . BASE_URL . '');
     }

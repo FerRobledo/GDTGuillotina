@@ -1,7 +1,7 @@
 <?php
 
-require_once 'modelJugadores.php';
-require_once 'view.php';
+require_once './model/modelJugadores.php';
+require_once './view/view.php';
 
 class jugadorController{
 
