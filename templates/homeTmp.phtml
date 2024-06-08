@@ -1,66 +1,121 @@
 <body>
     <main class="main-home">
-        <div class="equipo-main">
             <?php if($user != null) : ?>
                 <?php if($equipo != null) : ?>
-                    <div class="cancha">
-                        <?php foreach($equipo as $jugador) : ?>
-                                <div class="jugador">
-                                    <form action="setCapitan" method="GET"> 
-                                        <input type="hidden" name="jugador_id" value="<?= $jugador->jugador_id ?>">
-                                        <button type="submit" class="btn-jugador">
-                                            <?php if($jugador->es_capitan == 1) : ?>
-                                                <?php $capitan = $jugador?>
-                                                <img src="capitan.png" alt="cinta">
-                                            <?php endif ?>
-                                        </button>
-                                    </form>
-                                    <div class="nombre-jugador">
-                                        <span class="<?=$jugador->estado?>">&nbsp</span><p><?=$jugador->nombre_jugador?> <?=$jugador->apellido_jugador?></p>
-                                    </div>
-                                </div>
-                        <?php endforeach ?>
-                    </div>
-                    <div class="info-team">
-                        <div class="datos-team">
-                            <h1><?=$equipo[0]->nombre?></h1>
-                            <h2>Capitan: <?=$capitan->nombre_jugador . " " . $capitan->apellido_jugador?></h2>
-                            <h2>DT: <?=$_SESSION['USERNAME']?></h2>
-                            <h2>Puntos totales: <?=$equipo[0]->puntos_total?></h2>
-                            <h2>Cambios disponibles: <?= ($equipo[0]->hizoCambio == 1) ? 0 : 1?> </h2>
+                        <div class="info-team">
+                            <div class="datos-team">
+                                <h1><?=$equipo[0]->nombre?></h1>
+                                <h2>DT: <?=$_SESSION['USERNAME']?></h2>
+                                <h2>Puntos totales: <?=$equipo[0]->puntos_total?></h2>
+                                <h2>Cambios disponibles: <?= ($equipo[0]->hizoCambio == 1) ? 0 : 1?> </h2>
+                            </div>
+                            <a href="transferencia"><button>Realizar una transferencia</button></a>
                         </div>
-                        <a href="transferencia"><button>Realizar una transferencia</button></a>
-                    </div>
+                        <div class="cancha">
+                            <?php foreach($equipo as $jugador) : ?>
+                                    <div class="jugador">
+                                        <div class="nombre">
+                                            <?php 
+                                            // Obtener la inicial del nombre
+                                            $inicial_nombre = substr($jugador->nombre_jugador, 0, 1);
+                                            // Formatear como "Inicial. Apellido"
+                                            $nombre_formateado = $inicial_nombre . '. ' . $jugador->apellido_jugador;
+                                            ?>
+                                            <?=$nombre_formateado?>
+                                        </div>
+                                        <div class="elem-camiseta">
+                                            <form action="setCapitan" method="GET"> 
+                                                <input type="hidden" name="jugador_id" value="<?= $jugador->jugador_id ?>">
+                                                <button type="submit" class="btn-jugador">
+                                                    <?php if($jugador->es_capitan == 1) : ?>
+                                                        <?php $capitan = $jugador?>
+                                                        <img src="images/cinta2.0.png" alt="cinta">
+                                                    <?php endif ?>
+                                                </button>
+                                            </form>
+                                            <div class="dorsal">00</div> <!-- Añadir dorsal aquí -->
+                                        </div>
+                                        <div class="datos-jugador">
+                                            <div class="pos"><?=$jugador->posicion?> </div>
+                                            <span class="<?=$jugador->estado?>">&nbsp </span>
+                                            <div class="puntos">PUNTOS: <?=$jugador->puntos?> </div>
+                                        </div>
+                                    </div>
+                            <?php endforeach ?>
+                        </div>
                 <?php else : ?>
                     <div class="cancha">
                         <a href="newTeam"><button type="submit" class="btn-newTeam">Crear equipo</button></a>
                     </div>
                 <?php endif ?>
+                <div class="ranking-container">
+                    <h2>Ranking</h2>
+                    <select id="selectOrden">
+                        <option value="1" <?php if (empty($_GET['t']) || $_GET['t'] == 1) echo 'selected'; ?>>Puntos Ultima Fecha</option>
+                        <option value="2" <?php if (!empty($_GET['t']) && $_GET['t'] == 2) echo 'selected'; ?>>Puntos Totales</option>
+                    </select>
+                    <ol class="ranking-list">
+                        <?php foreach ($puntos as $punto) : ?> 
+                        <li class="ranking-item">
+                            <div class= "player-info">
+                                <span class="user-name"><?=$punto->nombre . " " . $punto->apellido?> </span>
+                                <?php if (empty($_GET['t']) || $_GET['t'] == 1) : ?>
+                                    <span class="user-name">Puntos = <?=$punto->puntos?> </span>
+                                <?php elseif ($_GET['t'] == 2) : ?>
+                                    <span class="user-name">Puntos totales = <?= $punto->puntos_total ?> </span>
+                                <?php endif; ?>
+                            </div>
+                            <div class="team-info">
+                                <span class="user-team"><?= $punto->nombre_equipo ?> </span>
+                            </div>
+                        </li>
+                        <?php endforeach ?>
+                    </ol>
+                </div>
             <?php else : ?>
-                <div class="cancha">
-                    <a href="login" class="login-btn">Iniciar sesión</a>
+                <div  class="main-logout">
+                    <div  class="fotos-equipo">
+                        <img class="imagen-equipo" src="images/CampeonA.png" alt="F11">
+                        <img class="imagen-equipo" src="images/Futsal.png" alt="Futsal">
+                        <img class="imagen-equipo" src="images/Serrano.png" alt="Serrano">
+                    </div>
+                    <div  class="main-form-user">
+                        <form class="form-user" id="login-form" action="postLogin" method="POST">
+                            <label class="label-form-user" for="username">Nombre de Usuario:</label><br>
+                            <input class="input-form-user" type="text" id="username" name="username" required><br>
+
+                            <label class="label-form-user" for="password">Contraseña:</label><br>
+                            <input class="input-form-user" type="password" id="password" name="password" required><br>
+
+                            <button class="btn-form-user" type="submit">Iniciar Sesión</button>
+                        </form>
+                    </div>
                 </div>
             <?php endif ?>
-
-        </div>
-        <div class="ranking-container">
-            <h2>Ranking:</h2>
-            <a href="home?t=1">Por fecha</a>
-            <a href="home?t=2">Por tabla general</a>
-            <ol class="ranking-list">
-                <?php foreach ($puntos as $punto) : ?> 
-                <li class="ranking-item">
-                    <div class= "player-info">
-                        <span class="user-name"><?=$punto->nombre . " " . $punto->apellido?> </span>
-                        <span class="user-name">Puntos = <?=$punto->puntos?> </span>
-                    </div>
-                    <div class="team-info">
-                        <span class="user-team"><?= $punto->nombre_equipo ?> </span>
-                        <span class="user-team">Puntos totales = <?= $punto->puntos_total ?> </span>   
-                    </div>
-                </li>
-                <?php endforeach ?>
-            </ol>
-        </div>
     </main>
 </body>
+<script>
+    // Obtener el elemento desplegable
+    const selectOrden = document.getElementById('selectOrden');
+
+    // Asegurar que el menú desplegable comience con la opción correcta seleccionada
+    window.onload = function() {
+        // Si no hay un valor definido en la URL o es 1, establecer el valor predeterminado en 1
+        if (!<?php echo isset($_GET['t']) ? $_GET['t'] : 1; ?>) {
+            selectOrden.value = "1";
+        }
+    };
+
+    // Escuchar cambios en el desplegable
+    selectOrden.addEventListener('change', function() {
+        // Obtener el valor seleccionado
+        const opcionSeleccionada = selectOrden.value;
+        
+        // Redireccionar a la página con la opción seleccionada
+        if (opcionSeleccionada === '1') {
+            window.location.href = 'home?t=1';
+        } else if (opcionSeleccionada === '2') {
+            window.location.href = 'home?t=2';
+        }
+    });
+</script>

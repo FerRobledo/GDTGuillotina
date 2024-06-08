@@ -7,9 +7,6 @@
                 <option value="<?=$jugador->jugador_id?>"><?=$jugador->nombre_jugador . " " . $jugador->apellido_jugador . "-" . $jugador->posicion?></option>
             <?php endforeach ?>
         </select><br>
-
-        <span class="arrow-symbol">➡️</span><br> <!-- Símbolo de flecha -->
-
         <label class="label-form-user" for="jugador_destino">Entra:</label><br>
         <select class="select-form-user" id="jugador_destino" name="jugador_destino" required>
             <option value="">Seleccionar Jugador</option>

@@ -13,17 +13,19 @@
 <header>
   <a class="a-title" href="home">
     <div class="left-section">
-        <img src="escudo.jpg" alt="Logo de Gran DT Guillotense" class="logo">
+        <img src="./images/escudo.jpg" alt="Logo de Gran DT Guillotense" class="logo">
         <h1 class="title">Gran DT Guillotense</h1>
     </div>
   </a>
-    <nav>
-        <ul>
-            <li><a class="a" href="proximamente">Info</a></li>
-            <li><a class="a" href="proximamente">Calendario</a></li>
-            <li><a class="a" href="proximamente">Gran DT</a></li>
-        </ul>
-    </nav>
+    <?php if(strpos($_SERVER['REQUEST_URI'], '/register') == false && strpos($_SERVER['REQUEST_URI'], '/transferencia') == false && $user != null) : ?>
+        <nav>
+            <ul>
+                <li><a class="a" href="proximamente">Info</a></li>
+                <li><a class="a" href="proximamente">Calendario</a></li>
+                <li><a class="a" href="proximamente">Gran DT</a></li>
+            </ul>
+        </nav>
+    <?php endif ?>
     <div class="auth-links">
         <?php if(authHelper::isAuthenticated()): ?>
             <a href="logout" class="logout-btn">Cerrar sesión</a>

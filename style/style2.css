@@ -14,6 +14,10 @@ body{
   background-attachment: fixed; 
 }
 
+.title {
+    font-size: 30px; /* Tamaño de fuente deseado */
+}
+
 .ranking-container{
     width: 33%;
     padding-left: 5%;
@@ -92,6 +96,7 @@ body{
     margin: 2%;
     display: flex;
     justify-content: center;
+    color: white;
 }
 
 .main-form-user{
@@ -103,11 +108,19 @@ body{
     margin-top: 20px;
     margin: auto;
     margin-bottom: 10%;
-    background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    border-top: solid black 3px;
+    border-bottom: solid black 3px;
+    background-color: rgba(0, 0, 0, 0.644);
+    color: white;
 }
+
+.label-form-user {
+    font-size: 20px;
+    color:rgb(179, 179, 179);
+}
+
 .main-form-points {
     text-align: center;
 }
@@ -209,22 +222,50 @@ body{
 
 .main-home{
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 2%;
+    width: 100%;
+}
+
+.main-logout{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 2%;
+    width: 100%;
+}
+
+.imagen-equipo {
+    width: 80%; /* Ajustar el ancho al 100% del contenedor */
+    height: auto; /* Permitir que la altura se ajuste automáticamente */
+    display: block; /* Mostrar como bloque para evitar espacios entre imágenes */
+    margin-bottom: 10px; /* Agregar un espacio entre cada imagen */
+    border-radius: 10px;
+    border-top: solid black 3px;
+    border-bottom: solid black 3px;
+    background-color: rgba(0, 0, 0, 0.644);
+}
+
+.fotos-equipo {
     flex-direction: column;
-    align-items: center;
 }
 
 .info-team{
     color: white;
-    margin-top: 5%;
+    margin: 20px;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 10%;
-    width: 70%;
     border-radius: 20px;
     border-top: solid black 3px;
     border-bottom: solid black 3px;
     background-color: rgba(0, 0, 0, 0.644);
+    width: 250px;
+    height: 250px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .info-team button{
@@ -238,28 +279,32 @@ body{
     transition: background-color 0.3s;
 }
 
-.datos-team h2{
-    font-size: 20px;
-    margin-left: 5%;
-    color:rgb(179, 179, 179);
+.datos-team h1{
+    font-size: 25px;
+    color:rgb(255, 252, 252);
+    width: 100%;
 }
 
-.equipo-main{
-    margin-top: 2%;
+.datos-team h2{
+    font-size: 20px;
+    margin: 5%;
+    color:rgb(179, 179, 179);
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
+
 .cancha {
     display: flex;
-    width: 360px;
-    height: 510px;
+    width: 450px;
+    height: 600px;
     background-image: url(https://img.freepik.com/vector-gratis/campo-futbol-verde_225004-1137.jpg?w=360&t=st=1712777149~exp=1712777749~hmac=b8582a0…);
     flex-direction: row;
     flex-wrap: wrap;
     align-content: space-around;
     justify-content: space-around;
+    margin: 20px;
+    background-size: cover;
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
 .ranking-container{
@@ -267,30 +312,122 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 20px;
+    border-radius: 20px;
+    border-top: solid black 3px;
+    border-bottom: solid black 3px;
+    background-color: rgba(0, 0, 0, 0.644);
+    color: white;
 }
 
-.btn-jugador{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 50%;
-    cursor: pointer;
-    margin-bottom: 20%;
+.ranking-list {
+    margin-top: 20px; /* Agrega margen en la parte superior de la lista */
 }
+
+.ranking-item {
+    margin-bottom: 10px; /* Agrega margen en la parte inferior de cada elemento */
+}
+
+.team-info,
+.player-info {
+    font-size: 20px;
+    color:rgb(179, 179, 179);
+}
+
 .jugador{
     display: flex;
     flex-direction:column;
     align-items: center;
-    height: auto;
+    height: 200px;
     width: 50%;
+    background-image: url('../images/Camiseta Dorsal.png');
+    background-size: 150px 150px;
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.jugador .nombre {
+    margin: 0;
+    padding: 5px; /* Añade un poco de espacio alrededor del texto */
+    font-size: 10px; /* Tamaño de letra */
+    font-family: Arial, sans-serif; /* Tipo de letra */
+    font-weight: bold;
+    border: none;
+    color: rgba(255, 255, 255);
+    margin-top: 50px;
 }
 
 .jugador img{
     width: 75%;
+}
+
+.elem-camiseta {
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    justify-content: center; /* Centramos el contenido horizontalmente */
+    align-items: center;
+    position: relative; /* Para posicionar elementos hijos absolutamente */
+    margin-bottom: 50px;
+}
+
+.elem-camiseta .btn-jugador{
+    position: absolute;
+    bottom: -25px;
+    right: 28px;
+    transform: rotate(10deg); /* Rota el botón en grados */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    cursor: pointer;
+}
+
+.elem-camiseta .dorsal {
+    position: absolute;
+    margin-top: 50px;
+    margin-right: 5px;
+    display: flex;
+    font-size: 60px;
+    font-weight: bold;
+    color: #ffffff; /* Color del dorsal */
+    background-color: #ffffff00;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: -5px;
+}
+
+.datos-jugador {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 55px;
+}
+
+.datos-jugador .pos {
+    margin: 0;
+    padding: 4px; /* Añade un poco de espacio alrededor del texto */
+    font-size: 11px; /* Tamaño de letra */
+    font-family: Arial, sans-serif; /* Tipo de letra */
+    font-weight: bold;
+    border: none;
+    text-transform: uppercase;
+}
+
+.datos-jugador .puntos {
+    margin: 0;
+    padding: 4px; /* Añade un poco de espacio alrededor del texto */
+    font-size: 11px; /* Tamaño de letra */
+    font-family: Arial, sans-serif; /* Tipo de letra */
+    font-weight: bold;
+}
+
+.datos-jugador span {
+    border-radius: 5%;
+    font-size: 12px;
 }
 
 a .btn-newTeam[type="submit"] {
@@ -350,13 +487,12 @@ a .btn-newTeam[type="submit"]:hover {
   background-color: #333;
   color: #fff;
   height: 100px;
-  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .logo {
-  max-width: 50px;
+  max-width: 100px;
   height: auto;
 }
 .title {
@@ -374,7 +510,7 @@ nav ul li {
 }
 nav ul li .a {
   text-decoration: none;
-  font-size: 15px;
+  font-size: 25px;
   color: #fff;
   font-weight: bold;
   padding: 10px 15px;
