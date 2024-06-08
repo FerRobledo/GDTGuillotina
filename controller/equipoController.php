@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.php';
+require_once './config.php';
 require_once './helper/authHelper.php';
 require_once './model/userModel.php';
 require_once './model/modelJugadores.php';
@@ -139,7 +139,6 @@ class equipoController{
             }
             $this->modelEquipo->actualizarPuntos($equipo->nombre, $sumaPuntos);
         }
-        $modelJugadores->set0Pts();
         $this->model->darCambios();
         header('Location:' . BASE_URL . '');
     }

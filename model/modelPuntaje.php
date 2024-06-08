@@ -1,5 +1,5 @@
 <?php
-    require_once 'config.php';
+    require_once './config.php';
 
     class modelPuntaje{
     
@@ -28,9 +28,12 @@
         }
 
         public function getValoracionById($id){
-            $sql = "SELECT valoracion FROM puntaje WHERE id_jugador = ?";
+            $sql = "SELECT valoracion
+                    FROM puntaje
+                    WHERE id_jugador = ?
+                    AND id = (SELECT MAX(id) FROM puntaje WHERE id_jugador = ?)";
             $query = $this->db->prepare($sql);
-            $query->execute([$id]);
+            $query->execute([$id, $id]);
             return $query->fetch(PDO::FETCH_OBJ);
         }
 
