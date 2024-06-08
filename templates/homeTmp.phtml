@@ -6,7 +6,7 @@
                     <div class="cancha">
                         <?php foreach($equipo as $jugador) : ?>
                                 <div class="jugador">
-                                    <form action="setCapitan" method="GET"> 
+                                    <form action="" method="GET"> 
                                         <input type="hidden" name="jugador_id" value="<?= $jugador->jugador_id ?>">
                                         <button type="submit" class="btn-jugador">
                                             <?php if($jugador->es_capitan == 1) : ?>
@@ -29,8 +29,8 @@
                             <h2>Puntos totales: <?=$equipo[0]->puntos_total?></h2>
                             <h2>Cambios disponibles: <?= ($equipo[0]->hizoCambio == 1) ? 0 : 1?> </h2>
                         </div>
-                        <a href="transferencia"><button>Realizar una transferencia</button></a> 
-                    <!--<h1>¡ESTAMOS EN VEDA!</h1>-->
+                        <!--<a href="transferencia"><button>Realizar una transferencia</button></a>-->
+                        <h1>¡ESTAMOS EN VEDA!</h1>
                     </div>
                 <?php else : ?>
                     <div class="cancha">

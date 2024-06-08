@@ -80,18 +80,6 @@
             $controller = new equipoController;
             $controller->calcularFecha();
             break;
-        case 'comenzarVeda' :
-            $controller = new equipoController;
-            $controller->comenzarVeda();
-            break;
-        case 'terminarVeda' :
-            $controller = new equipoController;
-            $controller->terminarVeda();
-            break;
-        case 'veda' : 
-            $controller = new equipoController;
-            $controller->verVeda();
-            break;
         case 'proximamente' : 
             $controller = new equipoController;
             $controller->showHome();
