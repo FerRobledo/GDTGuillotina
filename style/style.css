@@ -367,6 +367,7 @@ header {
 
 #homeMain{
     height: 100vh;
+    padding-bottom: 50px;
     text-align: center;
 }
 
@@ -379,9 +380,15 @@ header {
     cursor: pointer;
 }
 
+#btnRegistro{
+    display: none;
+}
 
 #containerHomeMain {
-    height: 85%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    height: 60%;
+
     display: flex;
     justify-content: space-around;
     text-align: center;
@@ -393,16 +400,7 @@ header {
     justify-content: space-around;
 }
 
-.login-register .inicioSesion{
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: white;
-}
 
-.botones{
-    
-}
 .btn{
     margin-top: 10px;
 }
@@ -411,6 +409,14 @@ header {
     justify-content: space-between;
     width: 100%;
     margin-bottom: 20px; /* Añado margen inferior a los formularios */
+}
+
+#containerForm{
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    height: 70%;
 }
 
 .form {
@@ -440,8 +446,6 @@ header {
     justify-content: space-around;
     background-color: rgba(0, 0, 0, 0.644);
     border-radius: 20px;
-    margin-top: 7%;
-    margin-bottom: 7%;
 }
 
 .imagenes{
