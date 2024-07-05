@@ -88,28 +88,12 @@ body{
     font-size: 0.8em;
 }
 
-.title-form-user{
-    margin: 2%;
-    display: flex;
-    justify-content: center;
-}
-
-.main-form-user{
-    margin-top: 2%;
-}
-
-.form-user {
-    width: 300px;
-    margin-top: 20px;
-    margin: auto;
-    margin-bottom: 10%;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 .main-form-points {
     text-align: center;
+}
+
+.imgEquipoHome{
+    height: 200px;
 }
 
 .title-form-points {
@@ -169,35 +153,6 @@ body{
     flex-direction: column;
     border: 1px solid black;
     padding: 1px;
-}
-
-.label-form-user{
-    display: block;
-    margin-bottom: 5px;
-}
-
-.input-form-user[type="text"],
-.input-form-user[type="password"] {
-    width: calc(100% - 20px);
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.btn-form-user[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-form-user[type="submit"]:hover {
-    background-color: #0056b3;
 }
 
 .errorMsg{
@@ -332,19 +287,6 @@ a .btn-newTeam[type="submit"]:hover {
     background-color: #f2f2f2;
 }
 
-.select-form-user {
-    width: calc(100% - 30px);
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* Estilos para checkbox */
-.checkbox-form-user {
-    margin-bottom: 15px;
-}
-
  /* Estilos CSS para el header */
  header {
   background-color: #333;
@@ -352,7 +294,7 @@ a .btn-newTeam[type="submit"]:hover {
   height: 100px;
   padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 .logo {
@@ -362,17 +304,13 @@ a .btn-newTeam[type="submit"]:hover {
 .title {
   margin-left: 10px;
 }
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  text-align: center;
-  margin: 0;
+nav{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
-nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
-nav ul li .a {
+nav .a {
   text-decoration: none;
   font-size: 15px;
   color: #fff;
@@ -387,23 +325,6 @@ nav ul li .a:hover {
 .auth-links {
   display: flex;
   align-items: center;
-}
-.login-btn,
-.register-btn,
-.logout-btn {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 15px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
-.login-btn:hover,
-.register-btn:hover,
-.logout-btn:hover {
-  background-color: #0056b3;
 }
 
 .left-section{
@@ -425,4 +346,133 @@ nav ul li .a:hover {
 
 .auth-links{
   margin-right: 5%;
+}
+
+
+
+/******************** GEMINI **************************/
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#homeMain{
+    height: 100vh;
+    text-align: center;
+}
+
+#logoMain{
+    margin-top: 5%;
+    width: 150px;
+}
+
+#btnRegistro{
+    cursor: pointer;
+}
+
+
+#containerHomeMain {
+    height: 85%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.login-register {
+    padding: 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.login-register .inicioSesion{
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.botones{
+    
+}
+.btn{
+    margin-top: 10px;
+}
+.formularios {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px; /* Añado margen inferior a los formularios */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formularios .form-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.formularios input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+.linea-tiempo {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.644);
+    border-radius: 20px;
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+
+.imagenes{
+    display: flex;
+    align-items: center;
+}
+
+.imagen {
+    min-width: 270px;
+    position: relative; /* Permite posicionar el título sobre la imagen */
+    border-radius: 50%; /* Crea una forma circular */
+    margin-bottom: 10px; /* Añade un margen inferior a las imágenes */
+}
+
+.fotoEquipo {
+    width: 100%;
+    height: 200px; /* Ocupa toda la altura del contenedor */
+    object-fit: cover; /* Mantiene la proporción de la imagen y la cubre por completo */
+    border: 2px solid transparent; /* Crea un borde transparente */
+    box-sizing: border-box; /* Incluye el borde en las dimensiones de la imagen */
+}
+
+.imagenes .imagen .titulo {
+    position: absolute; /* Posiciona el título de forma absoluta sobre la imagen */
+    bottom: 10px; /* Ubica el título en la parte inferior de la imagen */
+    left: 50%; /* Centra el título horizontalmente */
+    transform: translateX(-50%); /* Compensa la mitad del ancho del título */
+    background-color: rgba(0, 0, 0, 0.5); /* Crea un fondo semitransparente */
+    color: #fff; /* Color blanco para el texto */
+    padding: 5px 10px; /* Añade relleno al título */
+    border-radius: 5px; /* Crea bordes redondeados en el título */
+    font-size: 14px; /* Ajusta el tamaño de la fuente */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
 }

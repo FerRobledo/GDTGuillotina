@@ -1,9 +1,9 @@
 <?php
+require './templates/head.phtml';
 
 class view{
 
-    public function renderHome($user = null, $equipo = null, $puntos){
-        require_once './templates/headerTmp.phtml';
+    public function renderHome($user = null, $equipo = null, $puntos, $error = null){
         require_once './templates/homeTmp.phtml';
     }
 
@@ -15,11 +15,6 @@ class view{
     public function renderRegister($error = null){
         require_once './templates/headerTmp.phtml';
         require_once './templates/registerTmp.phtml';
-    }
-
-    public function renderLogin($error = null){
-        require_once './templates/headerTmp.phtml';
-        require_once './templates/loginTmp.phtml';
     }
 
     public function renderAdmin($error = null, $list){
