@@ -1,0 +1,53 @@
+<body id="bodyHome">
+<div class="containerLogos">
+      <div class="izq"></div>
+      <div class="der"></div>
+    </div>
+
+    <div class="containerForm">
+      <div class="backbox">
+        <div class="loginMsg">
+          <div class="textcontent">
+            <p class="title">¿No tenés cuenta?</p>
+            <p>Registráte para armar tu equipo.</p>
+            <button id="switch1">REGISTRARSE</button>
+          </div>
+        </div>
+        <div class="signupMsg">
+          <div class="textcontent">
+            <p class="title">¿Ya tenés cuenta?</p>
+            <p>Inicia sesión para ver tu equipo.</p>
+            <button id="switch2">INICIAR SESIÓN</button>
+          </div>
+        </div>
+      </div>
+      <!-- backbox -->
+  
+      <div class="frontbox">
+        <form action="postLogin" method="POST" class="login">
+          <h2>INICIAR SESIÓN</h2>
+          <div class="inputbox">
+            <input type="text" name="username" placeholder="Usuario">
+            <input type="password" name="password" placeholder="Contraseña">
+          </div>
+          <p>¿Olvidaste tu contraseña?</p>
+          <button>Ingresar</button>
+        </form>
+  
+        <form action="signUp" method="POST" class="signup hide">
+          <h2>REGISTRARSE</h2>
+          <div class="inputbox">
+            <input type="text" name="fullname" placeholder="Nombre Completo">
+            <input type="text" name="username" placeholder="Usuario">
+            <input type="password" name="password" placeholder="Contraseña">
+          </div>
+          <button>Registrarse</button>
+        </form>
+        <div class="errorHome">
+          <p><?=$error?></p>
+        </div>
+      </div>
+      <!-- frontbox -->
+    </div>
+    <script src="./script/form.js"></script>
+</body>

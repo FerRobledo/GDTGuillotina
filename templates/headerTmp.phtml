@@ -1,0 +1,21 @@
+<body>
+<header>
+  <a class="a-title" href="home">
+    <div class="left-section">
+        <img src="./images/logoEscudo.png" alt="Logo de Gran DT Guillotense" class="logo">
+    </div>
+  </a>
+    <nav>
+        <h4><a class="a" href="historia">Historia</a></h4>
+        <h4><a class="a" href="reglamento">Reglamento GDT</a></h4>
+        <?php if(authHelper::isAuthenticated()) : ?>
+          <?php if($_SESSION['USER_ID'] == 1) : ?>
+            <h4><a class="a" href="admin">Admin</a></h4>
+          <?php endif ?>
+        <?php endif ?>
+      </nav>
+    <?php if(authHelper::isAuthenticated()) : ?>
+        <a id="logout" href="logout">Cerrar sesion</a>
+    <?php endif ?>
+</header>
+</body>

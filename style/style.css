@@ -1,0 +1,1085 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://files.antena2.com/antena2/public/styles/imagen_despliegue/public/2019-03/champions.jpg.webp?VersionId=B1s4yrxj6iIIfHo9.gG0ItMk45h4znlR&itok=GIsN1MeY);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+}
+
+.title {
+    font-size: 30px; /* Tamaño de fuente deseado */
+}
+
+p{
+    /* <weight>: Use a value from 100 to 900 */
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    
+}
+
+.ranking-item {
+    margin-bottom: 20px;
+}
+
+.nombre-jugador{
+    display: flex;
+    padding: 1%;
+    background-color: white;
+    border: gray 1px solid;
+}
+
+.lista{
+    background-color: green;
+    width: 15px;
+    margin-right: 5px;
+}
+
+.duda{
+    background-color: yellow;
+    width: 15px;
+    margin-right: 5px;
+}
+
+.noJuega{
+    background-color: rgb(255, 0, 0);
+    width: 15px;
+    margin-right: 5px;
+}
+
+.jugoCopa{
+    background-color: rgb(0, 4, 255);
+    width: 15px;
+    margin-right: 5px;
+}
+
+.player-info {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-info {
+    display: flex;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-points-total {
+    display: block;
+    font-size: 0.8em;
+}
+
+.title-form-user{
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.main-form-user{
+    margin-top: 2%;
+}
+
+.form-user {
+    width: 300px;
+    margin-top: 20px;
+    margin: auto;
+    margin-bottom: 10%;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5514998235622374) 50%, rgba(0,0,0,1) 100%);
+    color: white;
+}
+
+.label-form-user {
+    font-size: 20px;
+    color:rgb(179, 179, 179);
+}
+
+.main-form-points {
+    text-align: center;
+}
+
+.title-form-points {
+    margin-bottom: 20px;
+}
+
+.form-points {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 98%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-form-points {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.inputs-form-points {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.label-form-points {
+    margin-bottom: 5px;
+    width: 120px;
+}
+
+.input-form-points {
+    width: 100px;
+}
+
+.input-form-points-checkbox {
+    width: auto;
+}
+
+.btn-form-points {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input-label{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 1px;
+}
+
+.label-form-user{
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-form-user[type="text"],
+.input-form-user[type="password"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-form-user[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-form-user[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.errorMsg{
+    background-color: black;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+
+.main-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2%;
+    width: 100%;
+}
+
+.main-logout{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 2%;
+    width: 100%;
+}
+
+.cancha {
+    display: flex;
+    width: 340px;
+    height: 450px;
+    background-image: url(../images/fondoCancha.png);
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    background-size: cover;
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.ranking-list {
+    margin-top: 20px; /* Agrega margen en la parte superior de la lista */
+}
+
+.ranking-item {
+    margin-bottom: 10px; /* Agrega margen en la parte inferior de cada elemento */
+}
+
+.team-info,
+.player-info {
+    font-size: 20px;
+    color:rgb(179, 179, 179);
+}
+
+.jugador{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    height: 100px;
+    width: 50%;
+    background-image: url('../images/addCamiseta.png');
+    background-size: contain;
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.jugador .nombre {
+    margin: 0;
+    padding: 5px; /* Añade un poco de espacio alrededor del texto */
+    font-size: 8px; /* Tamaño de letra */
+    font-family: Arial, sans-serif; /* Tipo de letra */
+    font-weight: bold;
+    border: none;
+    color: rgba(255, 255, 255);
+    margin-top: 17px;
+}
+
+.jugador img{
+    width: 75%;
+}
+
+.elem-camiseta {
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    justify-content: center; /* Centramos el contenido horizontalmente */
+    align-items: center;
+    position: relative; /* Para posicionar elementos hijos absolutamente */
+    margin-bottom: 50px;
+}
+
+.elem-camiseta .btn-jugador{
+    position: absolute;
+    right: 19px;
+    bottom: -10px;
+    transform: rotate(10deg); /* Rota el botón en grados */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    cursor: pointer;
+}
+
+.elem-camiseta .dorsal {
+    position: absolute;
+    margin-top: 30px;
+    display: flex;
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff; /* Color del dorsal */
+    background-color: #ffffff00;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: -5px;
+    margin-right: 5px;
+}
+
+.datos-jugador {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0px;
+}
+
+.datos-jugador .pos {
+    margin: 0;
+    padding: 4px; /* Añade un poco de espacio alrededor del texto */
+    font-size: 11px; /* Tamaño de letra */
+    font-family: Arial, sans-serif; /* Tipo de letra */
+    font-weight: bold;
+    border: none;
+    text-transform: uppercase;
+}
+
+.datos-jugador .puntos {
+    margin: 0;
+    padding: 4px; /* Añade un poco de espacio alrededor del texto */
+    font-size: 11px; /* Tamaño de letra */
+    font-family: Arial, sans-serif; /* Tipo de letra */
+    font-weight: bold;
+}
+
+.datos-jugador span {
+    border-radius: 5%;
+    font-size: 12px;
+}
+
+a .btn-newTeam[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+a .btn-newTeam[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.main-table {
+    margin: 20px;
+}
+
+.title-table {
+    text-align: center;
+}
+
+.table-jugadores {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-jugadores th,
+.table-jugadores td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table-jugadores th {
+    background-color: #f2f2f2;
+}
+
+.select-form-user {
+    width: calc(100% - 30px);
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilos para checkbox */
+.checkbox-form-user {
+    margin-bottom: 15px;
+}
+
+ /* Estilos CSS para el header */
+  .logo {
+    max-width: 100px;
+    height: auto;
+  }
+  .title {
+    margin-left: 10px;
+  }
+  nav{
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+  }
+  nav .a {
+    text-decoration: none;
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+nav .a:hover{
+    transition: text-decoration 0.9s ease-in-out;
+    text-decoration: underline;
+  }
+  .auth-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .left-section{
+    margin-right: 10%;
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .left-section img{
+    width: 80px;
+  }
+  
+  .a-title{
+    color: #fff;
+    text-decoration: none;
+    font-size: 8px;
+  }
+  
+  .auth-links{
+    margin-right: 5%;
+  }
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    background-color: #1e1e1e;
+    color: #fff;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#homeMain{
+    text-align: center;
+}
+
+#logoMain{
+    margin-top: 10px;
+    width: 110px;
+}
+
+.botones{
+    cursor: pointer;
+}
+
+#btnLogin{
+    display: none;
+}
+
+#containerHomeMain {
+    margin-top: 20px;
+    margin-bottom: 10%;
+    height: 480px   ;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.login-register {
+    padding: 10px;
+    align-items: center;
+}
+
+
+.btn{
+    margin-top: 10px;
+}
+
+.formulario {
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formularios input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.footer{
+    margin: auto;
+}
+
+
+#containerForm{
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: max-content;
+}
+
+.formularios{
+    text-align: center; 
+    border-radius: 20px;
+    background-color: white;
+}
+
+#logout{
+    color: white;
+    text-decoration: none;
+}
+
+/*********************************** HISTORIA **************************************/
+
+.containerHistoria{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerHistoria img{
+    width: 40%;
+    margin-top: 70px;
+    border-start-start-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.tarjetaHistoria{
+    background-color: white;
+    border-start-start-radius: 20px;
+    border-top-right-radius: 20px;
+    border: 2px solid black;
+    width: 70%;
+}
+
+.tarjeta-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.tarjeta-header h3{
+    font-weight: 400;
+}
+
+.tarjeta-header h2{
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.tarjeta-body{
+    display: flex;
+}
+
+.goles{
+    display: flex;
+    flex-direction: column;
+    background-color: #333333;
+    color: white;
+    margin-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 100px;
+    width: 30%;
+    align-items: center;
+}
+
+.resumenHistoria{
+    margin: 30px;
+    width: 60%;
+}
+
+.tablaHistoria{
+    width: 80%;
+}
+
+.tablaHistoria td{
+    padding: 10px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.tablaHistorica{
+    padding: 15px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    background-color: white;
+    margin-top: 0;
+    width: 70%;
+    border: 1px solid black;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+}
+
+.tablaHistorica td{
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    width: 40%;
+}
+
+.headerTablaHistorica{
+    text-align: center;
+    width: 80%;
+    border-bottom: 1px solid black;
+    padding: 15px;
+}
+
+.mainTablaHistorica{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: #333333;
+    width: 70%;
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.listaTablaHistorica td{
+    padding: 10px;
+}
+
+.tarjetaGoleadores{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+}
+.tarjetaGoleadores img{
+    margin: auto;
+    width: 300px;
+    height: 235px;
+    object-fit: cover;
+    object-position: top;
+}
+/*********************** REGLAMENTO **************************/
+
+#mainReglamento{
+    color: white;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5514998235622374) 50%, rgba(0,0,0,1) 100%);
+    width: 75%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style:circle;
+    border-radius: 20px;
+    border: solid 2px rgb(87, 87, 87);
+}
+
+.contenidoReglamento{
+    margin-left: 65px;
+    margin-right: 65px;
+}
+
+#mainReglamento h1{
+    margin: 30px;
+    font-weight: bold;
+}
+
+#bodyReglamento{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+/*************************************** HOME ***************************************/
+
+#bodyHome .footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+#bodyHome{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+.containerForm{
+    /*border:1px solid white;*/
+    width: 600px;
+    height: 350px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    display: inline-flex;
+    white-space: nowrap;
+}
+
+.backbox{  
+background-color: #1e1e1e;
+width: 100%;
+height: 80%;
+position: absolute;
+transform: translate(0,-50%);
+top:50%;
+display: inline-flex;
+}
+
+.errorHome{
+    display: flex;
+    color: red;
+    justify-content: center;
+}
+
+.frontbox{
+box-sizing: content-box;
+background-color: white;
+border-radius: 20px;
+height: 100%;
+width: 50%;
+z-index: 10;
+position: absolute;
+right:0;
+margin-right: 3%;
+margin-left: 3%;
+transition: right .8s ease-in-out;
+}
+
+.moving{
+right:45%;
+}
+
+.loginMsg, .signupMsg{
+width: 50%;
+height: 100%;
+font-size: 15px;
+box-sizing: border-box;
+}
+
+.loginMsg .title,
+.signupMsg .title{
+font-weight: 300;
+font-size: 23px;
+}
+
+.loginMsg p,
+.signupMsg p {
+font-weight: 100;
+}
+
+.textcontent{
+color:white;
+margin-top:65px;
+margin-left: 12%;
+}
+
+.loginMsg button,
+.signupMsg button {
+background-color: #404040;
+border: 2px solid white;
+border-radius: 10px;
+color:white;
+font-size: 12px;
+box-sizing: content-box;
+font-weight: 300;
+padding:10px;
+margin-top: 20px;
+cursor: pointer;
+}
+
+/* front box content*/
+.login, .signup{
+    padding: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.login h2,
+.signup h2 {
+color:#8115d3;
+font-size:22px;
+}
+
+.inputbox{
+margin-top:30px; 
+}
+.login input, 
+.signup input {
+display: block;
+width: 100%;
+height: 40px;
+background-color: #f2f2f2;
+border: none;
+margin-bottom:20px;
+font-size: 12px;
+padding-left: 10px;
+}
+
+.login button,
+.signup button{
+background-color: #8115d3;
+border: none;
+color:white;
+font-size: 12px;
+font-weight: 300;
+box-sizing: content-box;
+padding:10px;
+border-radius: 10px;
+width: 60px;
+position: absolute;
+right:30px;
+bottom: 30px;
+cursor: pointer;
+}
+
+/* Fade In & Out*/
+.login p {
+cursor: pointer;
+color:#404040;
+font-size:15px;
+}
+
+.loginMsg, .signupMsg{
+/*opacity: 1;*/
+transition: opacity .8s ease-in-out;
+}
+
+.visibility{
+opacity: 0;
+}
+
+.hide{
+display: none;
+}
+
+.backbox{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.containerLogos{
+position: absolute;
+top:50%;
+left:50%;
+transform: translate(-50%, -50%);
+display: flex;
+justify-content: space-between;
+}
+
+.izq{
+background-image: url(../images/logoEscudoIzq.png);
+width: 100px;
+height: 200px;
+Background-size:cover
+}
+
+.der{
+background-image: url(../images/logoEscudoDer.png);
+width: 100px;
+height: 200px;
+Background-size:cover
+}
+
+.open{
+animation: open 1.5s 2s forwards, close 1.5s 3.5s forwards;
+}
+
+@keyframes open {
+from{
+    width: 200px;
+}
+to{
+    width: 800px;
+}
+}
+@keyframes close {
+from{
+    width: 800px;
+}
+to{
+    width: 200px;
+}
+}
+
+
+
+@keyframes container{
+from{
+    display: none;
+    width: 0px;
+}
+
+to{
+    width: 600px;
+}
+}
+.openContainer{
+width: 0px;
+animation: container 1.5s 2s forwards;
+}
+
+/*********************** EQUIPO ***********************/
+
+.container-equipo{
+    display: flex;
+}
+.containerInfo{
+    color: white;
+    display: flex;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5514998235622374) 50%, rgba(0,0,0,1) 100%);
+    width: 450px;
+    height: 250px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.derechaEquipo{
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn-transfer{
+    height: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.violeta{
+    color:#8115d3;
+}
+
+.datos-team{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: 10%;
+}
+
+.header-datos-team{
+    display: flex;
+    justify-content: space-between;
+}
+
+.datos-team h3{
+    font-size: 17px;
+}
+.datos-team h2{
+    font-size: 20px;
+}
+
+.info-ranking{
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 20px;
+    width: 790px;
+    height: max-content;
+}
+
+.info-ranking h2{
+    margin: 10px
+}
+
+.puntos-equipo div, .header-datos-team div{
+    width: 40%;
+}
+
+.puntos-equipo{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.containerInfo button{
+    width: 100%;
+    padding: 10px;
+    background-color: #8115d3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ranking-list {
+    width: 80%;
+}
+
+.cuadrado{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #1e1e1e;
+    position: absolute;
+    place-content: end;
+    bottom: 0;
+    animation: cuadrado 3s 2s forwards;
+    box-shadow: 0 -50px 500px #000000;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.cuadrado img{
+    height: 200px;
+    width: 200px;
+}
+
+body{
+    height: 100vh;
+    overflow: hidden;
+    animation: body 1ms 5s forwards;
+}
+
+@keyframes body{
+    from{
+        overflow: hidden;
+    }
+
+    to{
+        overflow: auto;
+    }
+}
+
+@keyframes cuadrado{
+    from{
+        height: 100vh;
+    }
+
+    to{
+        height: 0;
+    }
+}
