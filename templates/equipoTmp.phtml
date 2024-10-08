@@ -58,16 +58,18 @@
                                     <div class="ultima-fecha">
                                         <h2 class="bold violeta">Ultima fecha</h2>
                                         <h3>Puntos</h3>
-                                        <h3 class="violeta bold"><?=$equipo[0]->puntos?></h3>
-                                        <h3>Ranking</h3>
-                                        <h3 class="bold violeta">??</h3>
+                                        <h3 class="violeta bold">
+                                            <?php foreach ($puntos as $punto) : ?>
+                                                <?php if($punto->nombre_equipo == $equipo[0]->nombre) : ?>
+                                                    <?=$punto->puntos?>
+                                                <?php endif ?>
+                                            <?php endforeach ?>
+                                        </h3>
                                     </div>
                                     <div class="totales">
                                         <h2 class="bold">Torneo</h2>
                                         <h3>Puntos</h3>
                                         <h3 class="bold bold"><?=$equipo[0]->puntos_total?></h3>
-                                        <h3>Ranking</h3>
-                                        <h3 class="bold">??</h3>
                                     </div>
                                 </div>
                             </div>

@@ -42,7 +42,7 @@
         private function actualizarPts($idj, $puntos){
             $jugador = $this->modelJugadores->getById($idj);
             $sumaPuntos = 0;
-            print_r($puntos);
+            
             switch ($jugador->posicion) {
                 case 'arq':
                     $sumaPuntos += $puntos->valoracion;
@@ -51,13 +51,13 @@
                     $sumaPuntos += $puntos->gol_recibido*-1;
                     $sumaPuntos += $puntos->gol_oro*5;
                     $sumaPuntos += $puntos->tarjeta_amarilla*-2;
-                    $sumaPuntos += $puntos->tarjeta_roja*-2;
+                    $sumaPuntos += $puntos->tarjeta_roja*-4;
                     $sumaPuntos += $puntos->gol*12;
                     $sumaPuntos += $puntos->penal_errado*-4;
                     $sumaPuntos += $puntos->penal_atajado*4;
                     $sumaPuntos += $puntos->gol_penal*3;
                     $sumaPuntos += $puntos->gol_contra*-2;
-                    $sumaPintos += $puntos->correccion;
+                    $sumaPuntos += $puntos->correccion;
                 break;
                 case 'def' :
                     $sumaPuntos += $puntos->valoracion;
@@ -66,13 +66,13 @@
                     $sumaPuntos += $puntos->gol_recibido*0;
                     $sumaPuntos += $puntos->gol_oro*5;
                     $sumaPuntos += $puntos->tarjeta_amarilla*-2;
-                    $sumaPuntos += $puntos->tarjeta_roja*-2;
+                    $sumaPuntos += $puntos->tarjeta_roja*-4;
                     $sumaPuntos += $puntos->gol*9;
                     $sumaPuntos += $puntos->penal_errado*-4;
                     $sumaPuntos += $puntos->penal_atajado*4;
                     $sumaPuntos += $puntos->gol_penal*3;
                     $sumaPuntos += $puntos->gol_contra*-2;
-                    $sumaPintos += $puntos->correccion;
+                    $sumaPuntos += $puntos->correccion;
                 break;
                 case 'med' :
                     $sumaPuntos += $puntos->valoracion;
@@ -81,13 +81,13 @@
                     $sumaPuntos += $puntos->gol_recibido*0;
                     $sumaPuntos += $puntos->gol_oro*5;
                     $sumaPuntos += $puntos->tarjeta_amarilla*-2;
-                    $sumaPuntos += $puntos->tarjeta_roja*-2;
+                    $sumaPuntos += $puntos->tarjeta_roja*-4;
                     $sumaPuntos += $puntos->gol*6;
                     $sumaPuntos += $puntos->penal_errado*-4;
                     $sumaPuntos += $puntos->penal_atajado*4;
                     $sumaPuntos += $puntos->gol_penal*3;
                     $sumaPuntos += $puntos->gol_contra*-2;
-                    $sumaPintos += $puntos->correccion;
+                    $sumaPuntos += $puntos->correccion;
                 break;
                 case 'del' :
                     $sumaPuntos += $puntos->valoracion;
@@ -96,13 +96,13 @@
                     $sumaPuntos += $puntos->gol_recibido*0;
                     $sumaPuntos += $puntos->gol_oro*5;
                     $sumaPuntos += $puntos->tarjeta_amarilla*-2;
-                    $sumaPuntos += $puntos->tarjeta_roja*-2;
+                    $sumaPuntos += $puntos->tarjeta_roja*-4;
                     $sumaPuntos += $puntos->gol*4;
                     $sumaPuntos += $puntos->penal_errado*-4;
                     $sumaPuntos += $puntos->penal_atajado*4;
                     $sumaPuntos += $puntos->gol_penal*3;
                     $sumaPuntos += $puntos->gol_contra*-2;
-                    $sumaPintos += $puntos->correccion;
+                    $sumaPuntos += $puntos->correccion;
                 break;
             }
             $this->modelJugadores->actualizarPts($idj, $sumaPuntos);

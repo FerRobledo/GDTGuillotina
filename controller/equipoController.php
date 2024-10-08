@@ -31,10 +31,14 @@ class equipoController{
         }
 
         if(authHelper::isAuthenticated()){
-            $modelJugadores = new modelJugadores;
+            $modelPuntaje = new modelPuntaje;
             $user = $this->model->getByUsername($_SESSION['USERNAME']);
             $equipo = $this->modelEquipo->getAllTeamByUserId($user->id);
             if($equipo){
+                foreach ($equipo as $jugador) {
+                    $pts = $modelPuntaje->getPuntajeIdJugador($jugador->jugador_id);
+                    $jugador->puntos = $this->calcularPuntos($jugador, $pts);
+                }
                 $this->view->renderEquipo($user, $equipo, $puntos);
             }else{
                 $this->view->renderEquipo($user, null, $puntos);
@@ -94,22 +98,19 @@ class equipoController{
         $modelPuntaje = new modelPuntaje;
         $modelJugadores = new modelJugadores;
         foreach($equipos as $equipo){
-            $jugadores = $this->modelEquipo->getAllTeamByUserId($equipo->usuario_id);
             $sumaPuntos = 0;
+            $jugadores = $this->modelEquipo->getAllTeamByUserId($equipo->usuario_id);
             foreach($jugadores as $jugador){
+                $pts = $modelPuntaje->getPuntajeIdJugador($jugador->jugador_id);
                 $valoracion = $modelPuntaje->getValoracionById($jugador->jugador_id);
                 if($valoracion){
-                    if($jugador->es_capitan){
-                        $sumaPuntos += $jugador->puntos + $valoracion->valoracion;
-                    } else {
-                        $sumaPuntos += $jugador->puntos;
-                    }
+                    $sumaPuntos += $this->calcularPuntos($jugador, $pts);
                 }
             }
             $this->modelEquipo->actualizarPuntos($equipo->nombre, $sumaPuntos);
         }
         $modelJugadores->set0Pts();
-        $this->model->darCambios();
+        //$this->model->darCambios();
         header('Location:' . BASE_URL . '');
     }
 
@@ -180,4 +181,77 @@ class equipoController{
         return false; // Si no hay valores repetidos, retorna false
     }
 
+
+    private function calcularPuntos($jugador, $puntos){
+        $sumaPuntos = 0;
+        if($puntos){
+
+            switch ($jugador->posicion) {
+                case 'arq':
+                    $sumaPuntos += $puntos->valoracion;
+                    $sumaPuntos += $puntos->figura*4;
+                    $sumaPuntos += $puntos->valla_invicta*3;
+                    $sumaPuntos += $puntos->gol_recibido*-1;
+                    $sumaPuntos += $puntos->gol_oro*5;
+                    $sumaPuntos += $puntos->tarjeta_amarilla*-2;
+                    $sumaPuntos += $puntos->tarjeta_roja*-2;
+                    $sumaPuntos += $puntos->gol*12;
+                    $sumaPuntos += $puntos->penal_errado*-4;
+                    $sumaPuntos += $puntos->penal_atajado*4;
+                    $sumaPuntos += $puntos->gol_penal*3;
+                    $sumaPuntos += $puntos->gol_contra*-2;
+                    $sumaPuntos += $puntos->correccion;
+                    break;
+                    case 'def' :
+                        $sumaPuntos += $puntos->valoracion;
+                        $sumaPuntos += $puntos->figura*4;
+                $sumaPuntos += $puntos->valla_invicta*2;
+                $sumaPuntos += $puntos->gol_recibido*0;
+                $sumaPuntos += $puntos->gol_oro*5;
+                $sumaPuntos += $puntos->tarjeta_amarilla*-2;
+                $sumaPuntos += $puntos->tarjeta_roja*-2;
+                $sumaPuntos += $puntos->gol*9;
+                $sumaPuntos += $puntos->penal_errado*-4;
+                $sumaPuntos += $puntos->penal_atajado*4;
+                $sumaPuntos += $puntos->gol_penal*3;
+                $sumaPuntos += $puntos->gol_contra*-2;
+                $sumaPuntos += $puntos->correccion;
+                break;
+            case 'med' :
+                $sumaPuntos += $puntos->valoracion;
+                $sumaPuntos += $puntos->figura*4;
+                $sumaPuntos += $puntos->valla_invicta*0;
+                $sumaPuntos += $puntos->gol_recibido*0;
+                $sumaPuntos += $puntos->gol_oro*5;
+                $sumaPuntos += $puntos->tarjeta_amarilla*-2;
+                $sumaPuntos += $puntos->tarjeta_roja*-2;
+                $sumaPuntos += $puntos->gol*6;
+                $sumaPuntos += $puntos->penal_errado*-4;
+                $sumaPuntos += $puntos->penal_atajado*4;
+                $sumaPuntos += $puntos->gol_penal*3;
+                $sumaPuntos += $puntos->gol_contra*-2;
+                $sumaPuntos += $puntos->correccion;
+                break;
+                case 'del' :
+                    $sumaPuntos += $puntos->valoracion;
+                    $sumaPuntos += $puntos->figura*4;
+                    $sumaPuntos += $puntos->valla_invicta*0;
+                    $sumaPuntos += $puntos->gol_recibido*0;
+                    $sumaPuntos += $puntos->gol_oro*5;
+                    $sumaPuntos += $puntos->tarjeta_amarilla*-2;
+                    $sumaPuntos += $puntos->tarjeta_roja*-2;
+                    $sumaPuntos += $puntos->gol*4;
+                    $sumaPuntos += $puntos->penal_errado*-4;
+                    $sumaPuntos += $puntos->penal_atajado*4;
+                    $sumaPuntos += $puntos->gol_penal*3;
+                    $sumaPuntos += $puntos->gol_contra*-2;
+                    $sumaPuntos += $puntos->correccion;
+                    break;
+                }
+            }
+        if($puntos && $jugador->es_capitan){
+            $sumaPuntos += $puntos->valoracion;
+        }
+        return $sumaPuntos;
+    }
 }

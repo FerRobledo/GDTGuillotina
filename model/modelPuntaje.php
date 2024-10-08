@@ -28,7 +28,10 @@
         }
 
         public function getValoracionById($id){
-            $sql = "SELECT valoracion FROM puntaje WHERE id_jugador = ?";
+            $sql = "SELECT valoracion
+                    FROM puntaje
+                    WHERE fecha = (SELECT MAX(fecha) FROM puntaje)
+                    AND id_jugador = ?";
             $query = $this->db->prepare($sql);
             $query->execute([$id]);
             return $query->fetch(PDO::FETCH_OBJ);
@@ -39,6 +42,16 @@
             $query = $this->db->prepare($sql);
             $query->execute([$tor, $fec, $idj, $val, $fig, $vallainv, $golrecib, $goloro, $taram, $tarro, $gol, $penaler, $penalat, $golpen, $golcon, $correc]);
             return $this->db->lastInsertId();
+        }
+
+        public function getPuntajeIdJugador($idj){
+            $sql = "SELECT *
+                    FROM puntaje
+                    WHERE fecha = (SELECT MAX(fecha) FROM puntaje)
+                    AND id_jugador = ?";
+            $query = $this->db->prepare($sql);
+            $query->execute([$idj]);
+            return $query->fetch(PDO::FETCH_OBJ);
         }
 
     }

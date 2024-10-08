@@ -67,7 +67,7 @@ class modelEquipo{
         FROM usuario u 
         JOIN equipo e ON u.id = e.usuario_id 
         JOIN equipo_jugador ej ON e.nombre = ej.nombre_equipo 
-        JOIN jugador j ON ej.jugador_id = j.id 
+        JOIN jugador j ON ej.jugador_id = j.id
         WHERE u.id = ?";
 
         $query = $this->db->prepare($sql);
